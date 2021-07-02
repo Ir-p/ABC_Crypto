@@ -1,0 +1,5 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS abc_crypto_db;
+
+-- CREATE DATABASE
+CREATE DATABASE abc_crypto_db;
