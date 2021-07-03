@@ -1,0 +1,43 @@
+.display {
+    background-color: pink;
+}
+
+.newsHeading {
+    text-align: left;
+    font-size: 2.5em;
+}
+
+.articleImage {
+    width:  100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.topListHeading {
+    text-align: center;
+    font-size: 2.5em;
+    font-family: "Helvetica", sans-serif;
+}
+
+.tableHeading {
+    font-family:'Times New Roman', Times, serif;
+}
+  
+#crypto {
+    border-collapse: collapse;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even){background-color: #f2f2f2}
+  
+th {
+    background-color: #001aac;
+    color: white;
+}
