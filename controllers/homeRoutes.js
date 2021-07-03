@@ -28,10 +28,22 @@ const cards = [
   }
 ];
 
-// Get all cards
+// home page (all cards with mission statement)
 router.get('/', async (req, res) => {
   try {
     res.render('homepage-cards', { 
+      layout: 'homepage', cards,
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Get all cards
+router.get('/cards', async (req, res) => {
+  try {
+    res.render('cards', { 
       layout: 'homepage', cards,
       logged_in: req.session.logged_in 
     });
@@ -44,7 +56,7 @@ router.get('/', async (req, res) => {
 router.get('/cards/:id', withAuth, async(req, res) => {
   try {
     const card = cards[req.params.id-1];
-    console.log(card);
+    // console.log(card);
 
     if (!card) {
       res.status(404).json({ message: 'No card found with this id!' });
@@ -59,6 +71,17 @@ router.get('/cards/:id', withAuth, async(req, res) => {
   }
 });
 
+// GET about
+router.get('/about', withAuth, async(req, res) => {
+  try {
+    res.render('about', { 
+      layout: 'homepage', 
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // login 
 router.get('/login', (req, res) => {
