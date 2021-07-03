@@ -25,7 +25,12 @@ const cards = [
     "id": 4,
     "name": "Trend",
     "content": "Historic and current prices for top ten cryptocurrencies."
-  }
+  },
+  {
+    "id": 5,
+    "name": "Comment",
+    "content": "Share your Crypto resource."
+  },
 ];
 
 // home page (all cards with mission statement)
