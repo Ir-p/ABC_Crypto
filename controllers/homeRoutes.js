@@ -5,16 +5,61 @@ const withAuth = require('../utils/auth');
 
 // end point is / 
 
+const cards = [
+  {
+    "id": 1,
+    "name": "Information",
+    "content": "What is cryptocurrency?"
+  },
+  {
+    "id": 2,
+    "name": "Social Media",
+    "content": "Link to some API"
+  },
+  {
+    "id": 3,
+    "name": "Buy/Sell",
+    "content": "How to buy/sell cryptocurrency in different crypto exchanes."
+  },
+  {
+    "id": 4,
+    "name": "Trend",
+    "content": "Historic and current prices for top ten cryptocurrencies."
+  }
+];
+
+// Get all cards
 router.get('/', async (req, res) => {
   try {
-    res.render('homepage-root', { 
-      layout: 'homepage', 
+    res.render('homepage-cards', { 
+      layout: 'homepage', cards,
       logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// GET single card
+router.get('/cards/:id', withAuth, async(req, res) => {
+  try {
+    const card = cards[req.params.id-1];
+    console.log(card);
+
+    if (!card) {
+      res.status(404).json({ message: 'No card found with this id!' });
+      return;
+    }
+    res.render('card', { 
+      layout: 'homepage', card,
+      logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 // login 
 router.get('/login', (req, res) => {
   
