@@ -62,10 +62,18 @@ router.get('/cards/:id', withAuth, async(req, res) => {
       res.status(404).json({ message: 'No card found with this id!' });
       return;
     }
-    res.render('card', { 
-      layout: 'homepage', card,
-      logged_in: req.session.logged_in 
-    });
+    if (req.params.id == 3) {
+      res.render('buy-sell', { 
+        layout: 'homepage',
+        logged_in: req.session.logged_in 
+      });
+    }
+    else {
+      res.render('card', { 
+        layout: 'homepage', card,
+        logged_in: req.session.logged_in 
+      });
+    }
   } catch (err) {
     res.status(500).json(err);
   }
