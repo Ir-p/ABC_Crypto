@@ -20,6 +20,9 @@ const cards = [
     id: 3,
     name: "Buy/Sell",
     content: "How to buy/sell cryptocurrency in different crypto exchanes.",
+    "id": 3,
+    "name": "Buy/Sell",
+    "content": "How to buy/sell cryptocurrency in different crypto exchanges."
   },
   {
     id: 4,
@@ -73,8 +76,19 @@ router.get("/cards/:id", withAuth, async (req, res) => {
       res.render('link', {
         layout: 'homepage',
         logged_in: req.session.logged_in,
+      })
+    }
+    else if (req.params.id == 2) {
+      res.render('news', {
+        layout: 'homepage',
+        logged_in: req.session.logged_in,
       });
-
+    }
+    else if (req.params.id == 4) {
+      res.render('topList', {
+        layout: 'homepage',
+        logged_in: req.session.logged_in,
+      });
     }
     else {
       res.render("card", {
