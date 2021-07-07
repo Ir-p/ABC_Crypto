@@ -19,7 +19,7 @@ const cards = [
   {
     "id": 3,
     "name": "Buy/Sell",
-    "content": "How to buy/sell cryptocurrency in different crypto exchanes."
+    "content": "How to buy/sell cryptocurrency in different crypto exchanges."
   },
   {
     "id": 4,

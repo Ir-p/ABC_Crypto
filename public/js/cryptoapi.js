@@ -1,9 +1,11 @@
+// Call cryptocurrency API price
 async function getPrice() {
   var api_url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
   const response = await fetch(api_url);
   const apiData = await response.json();
   var cryptoData = [];
 
+  // Loop for top 10 cryptocurrencies
   for (let i=0;i<10;i++) {
     var coinName = apiData[i].name;
     var coinSymbol = apiData[i].symbol;
@@ -18,6 +20,7 @@ async function getPrice() {
       {priceChangeBGColor = "#00FF00";}      
     else priceChangeBGColor = "#000000";
 
+    // Create new row for every new cryptocurrency on Top 10 list
     createRow.innerHTML += `
     <tr>
       <td>${coinName} (${coinSymbol})</td>

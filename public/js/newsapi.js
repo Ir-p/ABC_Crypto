@@ -1,7 +1,9 @@
+// Call API news function
 function getNews() {
     return new Promise(function(resolve, reject) {
         fetch("https://newsapi.org/v2/everything?q=(crypto OR cryptocurrency)&apiKey=731a235df1a34bb3909c63341f260f5e")
 
+        // Turn data to JSON
         .then((response) => {
             return response.json();
         })
