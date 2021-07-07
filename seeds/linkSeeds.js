@@ -7,6 +7,7 @@ const sample_links = [
     link: 'https://developers.coinbase.com/docs/wallet/coinbase-connect',
     name: 'Coinbase Connect (OAuth2)',
     text: 'Connect your application with millions of Coinbase digital currency wallets using OAuth2',
+    keywords: 'digital,currency, wallet',
     upvote: '6',
     user_id: '2'
   },
@@ -14,6 +15,7 @@ const sample_links = [
     link: 'https://freewallet.org/',
     name: 'Digital currency wallet',
     text: 'A range of digital currency wallets with a built-in exchange for Bitcoin, Ethereum, Litecoin, Dogecoin, Monero, and Bytecoin in one place.',
+    keywords: 'digital,currency, wallet',
     upvote: '9',
     user_id: '1'
   },
@@ -21,6 +23,7 @@ const sample_links = [
     link: 'https://borgenproject.org/digital-poverty/',
     name: 'The Borgen Project',
     text: 'The digital age has improved quality of life for many people around the world. As prevalent as technology has become, there are still many countries that live with little or no access to technology, known as digital poverty.',
+    keywords: 'digital, technology',
     upvote: '5',
     user_id: '3'
   },
@@ -28,6 +31,7 @@ const sample_links = [
     link: 'https://bitcoin.org/',
     name: 'Widely used digital currency.',
     text: 'Bitcoin is an innovative payment network and a new kind of money.',
+    keywords: 'digital,currency, Bitcoin, payment',
     upvote: '9',
     user_id: '1'
   }

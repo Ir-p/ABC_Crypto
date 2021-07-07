@@ -26,6 +26,10 @@ Link.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    keywords: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     upvote: {
       type: DataTypes.STRING,
       allowNull: false

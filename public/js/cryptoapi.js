@@ -31,3 +31,4 @@ async function getPrice() {
 }
 
 getPrice();
+document.addEventListener("load", getPrice);
