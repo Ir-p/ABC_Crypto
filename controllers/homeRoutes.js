@@ -1,6 +1,6 @@
 // home routes
 const router = require("express").Router();
-const { Comment, Post, User } = require("../models");
+const { Link, Comment, Post, User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // end point is /
@@ -73,10 +73,27 @@ router.get("/cards/:id", withAuth, async (req, res) => {
       return;
     }
     else if (req.params.id == 5) {
-      res.render('link', {
-        layout: 'homepage',
-        logged_in: req.session.logged_in,
-      })
+      try{
+        const linkData = await Link.findAll({
+          // include: [
+          //   {
+          //     model: User,
+          //     attributes: ["username"]
+          //   },
+          // ],
+        });
+        const links = linkData.map((link) => link.get({ plain: true }));
+        console.log("links:", links);
+        // Pass serialized data and session flag into template
+        res.render("link", {
+          layout: "homepage",
+          links,
+          logged_in: req.session.logged_in,
+        }); 
+      } catch (err) {
+        res.status(500).json(err);
+      }
+      
     }
     else if (req.params.id == 2) {
       res.render('news', {
@@ -115,16 +132,16 @@ router.get("/about", withAuth, async (req, res) => {
 });
 
 // // GET link
-// router.get("/links", withAuth, async (req, res) => {
-//   try {
-//     res.render("link", {
-//       layout: "homepage",
-//       logged_in: req.session.logged_in,
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+router.get("/links", withAuth, async (req, res) => {
+  try {
+    res.render("link", {
+      layout: "homepage",
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // login
 router.get("/login", (req, res) => {
