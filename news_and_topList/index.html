@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>ABC Crypto</h1>
+    </header>
+
+    <main>
+        <div class="display">
+            <h2 class="newsHeading">Current Crypto News</h2>
+        </div>
+    </main>
+
+    <section class="topListContainer">
+        <h3 class="topListHeading">Top 10 Cryptocurrencies</h3>
+        <table id="crypto">
+            <tr class="tableHeading">
+                <th>Cryptocurrency</th>
+                <th>Price (USD)</th>
+                <th>Change % (24h)</th>
+                <th>Graph</th>
+            </tr>
+        </table>
+    </section>
+
+    <script src="./cryptoapi.js"></script>
+    <script src="./newsapi.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>
