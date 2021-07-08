@@ -99,21 +99,22 @@ router.get("/cards/:id", withAuth, async (req, res) => {
     else if (req.params.id == 5) {
       try{
         const linkData = await Link.findAll({
-          // include: [
-          //   {
-          //     model: User,
-          //     attributes: ["username"]
-          //   },
-          // ],
+          include: [
+            {
+              model: User,
+              attributes: ["username"]
+            },
+          ],
         });
         const links = linkData.map((link) => link.get({ plain: true }));
-        console.log("links:", links);
+       
         // Pass serialized data and session flag into template
         res.render("link", {
           layout: "homepage",
           links,
           logged_in: req.session.logged_in,
           user_name: req.session.user_name,
+          user_id: req.session.user_id
         }); 
       } catch (err) {
         res.status(500).json(err);

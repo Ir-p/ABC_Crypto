@@ -1,57 +1,9 @@
-{{#each links as |link| }}
-<div class="row mb-4 link">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/links/{{link.id}}">{{link.name}}</a>
-    </h2>
-    
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{link.text}}
-    </p>
-  </div>
-</div>
-{{/each}}
-<!-- link page-->
-<div class="card">
-        <div class="card-header">
-          Resource
-        </div>
-        <div class="card-body">
-          <form class = "form-resource" role="form">
-            <div class="form-group">
-              <label for="name">Title</label>
-              <input type="text" class="form-control" id="name" />
-            </div>
-            <div class="form-group">
-              <label for="text">Text</label>
-              <input type="text" class="form-control" id="text" />
-            </div>
-            <div class="form-group">
-              <label for="keyword">Keyword</label>
-              <input
-                type="text"
-                class="form-control"
-                id="keyword"
-              />
-            </div>
-            <div class="form-group">
-              <label for="link">Link</label>
-              <input
-                type="text"
-                class="form-control"
-                id="link"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary submit">
-              Submit
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="/js/link.js"></script>
+links page
+<hr/>
+link form partials: 
+{{!-- Add links forms --}}
+{{> link-form }}
+{{!-- Links view --}}
+<hr/>
+link view partials: 
+{{> link-view }}
