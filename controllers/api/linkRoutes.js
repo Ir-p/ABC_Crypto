@@ -13,10 +13,9 @@ router.get("/", withAuth, async (req, res) => {
       //   },
       // ],
     });
-    console.log("linkData:", linkData);
     // Serialize data so the template can read it
     const links = linkData.map((link) => link.get({ plain: true }));
-    console.log("links:", links);
+
     // Pass serialized data and session flag into template
     res.render("link", {
       layout: "homepage",
@@ -24,6 +23,21 @@ router.get("/", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post("/", withAuth, async (req, res) => {
+  const body = req.body;
+  console.log("body:", body);
+  try {
+    await Link.create({
+      ...body,
+      user_id: req.session.user_id,
+    });
+    res.redirect('/');
+  } catch (err) {
+    console.log(err.message);
     res.status(500).json(err);
   }
 });
