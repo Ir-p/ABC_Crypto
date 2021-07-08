@@ -42,6 +42,7 @@ router.get("/", async (req, res) => {
     res.render("homepage-cards", {
       layout: "homepage",
       cards,
+      user_name: req.session.user_name,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -51,11 +52,13 @@ router.get("/", async (req, res) => {
 
 // Get all cards
 router.get("/cards", async (req, res) => {
+  // console.log(req.session);
   try {
     res.render("cards", {
       layout: "homepage",
       cards,
-      logged_in: req.session.logged_in,
+      user_name: req.session.user_name,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -72,16 +75,25 @@ router.get("/cards/:id", withAuth, async (req, res) => {
       res.status(404).json({ message: "No card found with this id!" });
       return;
     }
-    if (req.params.id == 3) {
-      res.render('buy-sell', { 
+    else if (req.params.id == 2) {
+      res.render('news', {
         layout: 'homepage',
-        logged_in: req.session.logged_in 
+        logged_in: req.session.logged_in,
+        user_name: req.session.user_name,
       });
     }
-    else {
-      res.render('card', { 
-        layout: 'homepage', card,
-        logged_in: req.session.logged_in 
+    else if (req.params.id == 3) {
+      res.render('buy-sell', { 
+        layout: 'homepage',
+        logged_in: req.session.logged_in,
+        user_name: req.session.user_name, 
+      });
+    }
+    else if (req.params.id == 4) {
+      res.render('topList', {
+        layout: 'homepage',
+        logged_in: req.session.logged_in,
+        user_name: req.session.user_name,
       });
     }
     else if (req.params.id == 5) {
@@ -101,29 +113,18 @@ router.get("/cards/:id", withAuth, async (req, res) => {
           layout: "homepage",
           links,
           logged_in: req.session.logged_in,
+          user_name: req.session.user_name,
         }); 
       } catch (err) {
         res.status(500).json(err);
-      }
-      
-    }
-    else if (req.params.id == 2) {
-      res.render('news', {
-        layout: 'homepage',
-        logged_in: req.session.logged_in,
-      });
-    }
-    else if (req.params.id == 4) {
-      res.render('topList', {
-        layout: 'homepage',
-        logged_in: req.session.logged_in,
-      });
+      }    
     }
     else {
       res.render("card", {
         layout: "homepage",
         card,
         logged_in: req.session.logged_in,
+        user_name: req.session.user_name,
       }); 
     }
   } catch (err) {
@@ -137,6 +138,7 @@ router.get("/about", withAuth, async (req, res) => {
     res.render("about", {
       layout: "homepage",
       logged_in: req.session.logged_in,
+      user_name: req.session.user_name,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -149,6 +151,7 @@ router.get("/links", withAuth, async (req, res) => {
     res.render("link", {
       layout: "homepage",
       logged_in: req.session.logged_in,
+      user_name: req.session.user_name,
     });
   } catch (err) {
     res.status(500).json(err);

@@ -19,12 +19,11 @@ function getNews() {
           // newsCard.imageSrc = data.articles[i].urlToImage;
 
           $(".newsDisplay").append(
-            '<img class="articleImage" src=' +
-              data.articles[i].urlToImage +
-              "></img>"
+            '<a href='+data.articles[i].url+' target=_blank><img class="articleImage" src=' +
+              data.articles[i].urlToImage + " width=600px></img></a><p>"
           );
           $(".newsDisplay").append(
-            '<a href="+data.articles[i].url">' + data.articles[i].title + "</a>"
+            '<a href='+data.articles[i].url+'>'+ data.articles[i].title + "</a>"
           );
           $(".newsDisplay").append(
             "<h3>" + data.articles[i].description + "</h3>"

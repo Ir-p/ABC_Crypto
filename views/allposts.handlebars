@@ -1,0 +1,16 @@
+<!-- render posts -->
+<div class="col">
+  <div class="card">
+    <div class="card-header">
+      <div class="fs-3 fw-bold">All Posts</div>
+    </div>
+    {{#each posts}}
+    <div class="card-body">
+      <div class="fw-bold">{{link.name}} </div>
+      <div><a href="{{link.link}}">{{link.link}}</a></div>
+      <div>{{user.first_name}} {{user.last_name}} on {{format_date date_created}}</div> 
+      <div class="fst-italic">{{comment}}</div>
+    </div>
+    {{/each}}
+  </div>
+</div>
