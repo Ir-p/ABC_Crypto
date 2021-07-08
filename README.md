@@ -34,6 +34,6 @@ The team of four seasoned and aspired software developers were inspired by “Th
 This project is licensed under the [MIT](LICENSE.md) license - see the [License.md](LICENSE.md) file for details
 
 ## Acknowledgements
-* **Instructor of Columbia Engineering Coding Boot Camp** - Ron Erlich
-* **Instructor Assistant of Columbia Engineering Coding Boot Camp** - Samuel Thompson
+* **Ron Erlich** - Instructor of Columbia Engineering Coding Boot Camp
+* **Samuel Thompson** - Instructor Assistant of Columbia Engineering Coding Boot Camp 
 * **Billie Thompson** - *README template* - [PurpleBooth](https://github.com/PurpleBooth)
