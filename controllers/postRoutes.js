@@ -46,7 +46,7 @@ router.get('/all', withAuth, async(req, res) => {
 
     // serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts);
+    // console.log(posts);
     
     // res.status(200).json(postData);
     res.render('allposts', { 
@@ -111,7 +111,7 @@ router.get('/new', withAuth, async (req, res) => {
   
     // Serialize data so the template can read it
     const links = linkData.map((link) => link.get({ plain: true }));
-    console.log(links);
+    // console.log(links);
     res.render('new-post', { 
       layout: 'homepage',
       links, 

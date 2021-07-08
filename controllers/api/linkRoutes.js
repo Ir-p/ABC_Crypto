@@ -29,7 +29,7 @@ router.get("/", withAuth, async (req, res) => {
 
 router.post("/", withAuth, async (req, res) => {
   const body = req.body;
-  console.log("body:", body);
+  // console.log("body:", body);
   try {
     await Link.create({
       ...body,

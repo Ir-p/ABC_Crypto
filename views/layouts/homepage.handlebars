@@ -29,8 +29,8 @@
 
         <!-- render links based on login status -->
         {{#if logged_in}}
-            <a class="nav-link" href="/posts">My Posts</a><span class="nav-link">|</span>
-            <a class="nav-link" href="/posts/all">All Posts</a><span class="nav-link">|</span>
+            {{!-- <a class="nav-link" href="/posts">My Posts</a><span class="nav-link">|</span> --}}
+            <a class="nav-link" href="/posts/all">Posts</a><span class="nav-link">|</span>
         {{/if}} 
         <a class="nav-link" href="/about">About</a><span class="nav-link">|</span>
         {{#if logged_in}}
