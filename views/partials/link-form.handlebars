@@ -1,0 +1,42 @@
+<!-- link page-->
+<div class="card">
+        <div class="card-header">
+          Resource
+        </div>
+        <div class="card-body">
+          <form class = "form-resource" role="form" action="/api/links" method="POST">
+            <div class="form-group">
+              <label for="name">Title</label>
+              <input type="text" class="form-control" id="name" name="name" value="Demistify cryptocurrency" />
+            </div>
+          
+              <input type="hidden" value="{{user_id}}" name="user_id" class="form-control" id="user_id" />
+        
+            <div class="form-group">
+              <label for="text">Text</label>
+              <input type="text" class="form-control" id="text" name="text" value="Cryptocurrency" />
+            </div>
+            <div class="form-group">
+              <label for="keyword">Keyword</label>
+              <input
+                type="text"
+                class="form-control"
+                id="keyword" name="keywords" value="crytocurrency"
+              />
+            </div>
+            <div class="form-group">
+              <label for="link">Link</label>
+              <input
+                type="text"
+                class="form-control"
+                id="link" name="link" value="https://partners.wsj.com/ledger/demystify-cryptocurrency/"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
