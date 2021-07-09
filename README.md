@@ -1,5 +1,5 @@
 # ABC_Crypto
-The team of four seasoned and aspiring software developers were inspired by “The Borgen Project” blog article on [“Digital Poverty”](https://borgenproject.org/digital-poverty/) to develop an educational  cryptocurrency app, “ABC Crypto”. “ABC Crypto” is a free app which guides its users to well-known, established resources on cryptocurrencies. The users can learn anything from what cryptocurrencies are, how to buy and sell cryptocurrencies, the latest news on cryptocurrencies, what most popular cryptocurrencies are and its market prices. “ABC Crypto” allows its users to share their own knowledge and resources about cryptocurrencies, vote and comment on the other users’ resources. 
+The team of five seasoned and aspiring software developers were inspired by “The Borgen Project” blog article on [“Digital Poverty”](https://borgenproject.org/digital-poverty/) to develop an educational  cryptocurrency app, “ABC Crypto”. “ABC Crypto” is a free app which guides its users to well-known, established resources on cryptocurrencies. The users can learn anything from what cryptocurrencies are, how to buy and sell cryptocurrencies, the latest news on cryptocurrencies, what most popular cryptocurrencies are and its market prices. “ABC Crypto” allows its users to share their own knowledge and resources about cryptocurrencies, vote and comment on the other users’ resources. 
 
 ## Getting Started
 
@@ -21,6 +21,8 @@ The team of four seasoned and aspiring software developers were inspired by “T
 * [jQuery](https://jqueryui.com/autocomplete/)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [Node.js](https://nodejs.dev/learn/writing-files-with-nodejs)
+* [mysql2](https://www.npmjs.com/package/mysql2)
+* [MySQL](https://dev.mysql.com/)
 
 
 ## Authors
