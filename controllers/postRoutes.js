@@ -60,49 +60,30 @@ router.get('/all', withAuth, async(req, res) => {
   }
 });
 
-// router.get('/all', withAuth, async(req, res) => {
-//   try {
-//     const linkData = await Link.findAll({
-//     });
+router.get('/all', withAuth, async(req, res) => {
+  try {
+    const linkData = await Link.findAll({
+      include: [
+        { model: User, attributes: ['first_name', 'last_name'] },
+        { model: Comment, attributes: ['comment'],
+        include: [{ model: User, attributes: ['first_name', 'last_name']}] 
+      }
+    ]
+    });
+    const links = linkData.map((link) => link.get({ plain: true }));
+    console.log(links);
 
-//     // serialize the data
-//     const links = linkData.map((link) => link.get({ plain: true }));
-//     // console.log(posts);
-
-//     links.forEach(link => {
-//       console.log(link);
-//       try {
-//         const postData = Comment.findAll({
-//           where: {
-//             link_id: link.id
-//           },
-//           include: [
-//             { model: User, attributes: ['first_name', 'last_name'] },
-//           ]
-//         });
-//         const posts = postData.map((post) => post.get({ plain: true }));
-//         console.log(posts);
-//         return postData;
-//         // link.posts = posts;
-        
-//       } catch (err) {
-//         res.status(500).json(err);
-//       }
-
-//     });
-//     console.log(links);
-
-//     res.status(200).json(postData);
-//     res.render('allposts', { 
-//       layout: 'homepage', 
-//       posts, 
-//       logged_in: req.session.logged_in,
-//       user_name: req.session.user_name
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.status(200).json(postData);
+    res.render('allposts', { 
+      layout: 'homepage', 
+      posts, 
+      logged_in: req.session.logged_in,
+      user_name: req.session.user_name
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 // new post 
 router.get('/new', withAuth, async (req, res) => {
   try {

@@ -5,7 +5,7 @@ async function getPrice() {
   const apiData = await response.json();
   var cryptoData = [];
   var baseUrl = "https://www.coingecko.com/en/coins/";
-  // console.log(apiData);
+  console.log(apiData);
 
   // Loop for top 10 cryptocurrencies
   for (let i=0;i<10;i++) {

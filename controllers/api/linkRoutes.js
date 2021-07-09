@@ -6,12 +6,16 @@ router.get("/", withAuth, async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const linkData = await Link.findAll({
-      // include: [
-      //   {
-      //     model: User,
-      //     attributes: ["username"]
-      //   },
-      // ],
+      include: [
+        { model: Comment, attributes: ['comment']
+      }
+    ]
+    //   include: [
+    //     { model: User, attributes: ['first_name', 'last_name'] },
+    //     { model: Comment, attributes: ['comment'],
+    //     include: [{ model: User, attributes: ['first_name', 'last_name']}] 
+    //   }
+    // ]
     });
     // Serialize data so the template can read it
     const links = linkData.map((link) => link.get({ plain: true }));

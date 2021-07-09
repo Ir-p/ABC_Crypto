@@ -101,8 +101,8 @@ router.get("/cards/:id", withAuth, async (req, res) => {
         const linkData = await Link.findAll({
           include: [
             {
-              model: User,
-              attributes: ["username"]
+              model: Comment,
+              attributes: ["comment"]
             },
           ],
         });
