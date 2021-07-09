@@ -1,23 +1,45 @@
-{{#each links as |link| }}
-{{log link}}
-<hr/>
-<div class="row mb-4 link">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href={{link.link}} target="_blank">{{link.name}}</a>
-    </h2>
-    
+{{#each links as |link|}}
+
+  {{log link}}
+  <hr />
+  <div class="row mb-4 link">
+    <div class="col-md-5">
+      <h2>
+        <!-- Call helper function with triple brackets to render the emoji span as HTML -->
+        {{{get_emoji}}}
+        <a href={{link.link}} target="_blank">{{link.name}}</a>
+      </h2>
+      <div>
+        <div>
+
+          {{#switch link.upvote }}
+            {{#case "5"}} B {{/case}}
+            {{#case "9"}} A {{/case}}
+            {{#case "6"}} C {{/case}}
+            {{#case "0"}} D {{/case}}
+          {{/switch}}
+
+        </div>
+      </div>
+
+    </div>
+    <div class="col-md-7">
+      <p>
+        {{link.text}}
+      </p>
+      {{#each link.comments as |comment|}}
+        <em>
+          {{comment.comment}}
+        </em>
+        <p>
+          {{comment.user.first_name}}
+          {{comment.user.last_name}}
+          on
+          {{format_date comment.date_created}}
+        </p>
+        <hr />
+      {{/each}}
+    </div>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{link.text}}
-    </p>
-    <p>User:
-      {{link.user.username}}
-    </p>
-  </div>
-</div>
-<hr/>
+  <hr />
 {{/each}}
