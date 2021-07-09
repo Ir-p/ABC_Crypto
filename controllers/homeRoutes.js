@@ -102,12 +102,18 @@ router.get("/cards/:id", withAuth, async (req, res) => {
           include: [
             {
               model: Comment,
-              attributes: ["comment"]
+              attributes: ["comment", "date_created"],
+              include: [
+                {
+                  model: User,
+                  attributes: ["first_name", "last_name"]
+                }
+              ]
             },
           ],
         });
         const links = linkData.map((link) => link.get({ plain: true }));
-       
+        console.log('links:', links);
         // Pass serialized data and session flag into template
         res.render("link", {
           layout: "homepage",

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Link, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+<<<<<<< HEAD
 router.get("/", withAuth, async (req, res) => {
   try {
     // Get all posts and JOIN with user data
@@ -31,6 +32,8 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
+=======
+>>>>>>> main
 router.post("/", withAuth, async (req, res) => {
   const body = req.body;
   // console.log("body:", body);
