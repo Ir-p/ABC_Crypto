@@ -1,0 +1,21 @@
+<!-- render posts -->
+<div class="col">
+  <div class="card">
+    <div class="card-header">
+      <div class="fs-3 fw-bold">My Posts</div>
+      <div class="fst-italic">Click on comment to edit.</div>
+      <div>
+        <span class="fs-7 fw-bold"><a href="/posts/new" class="href">Add New Post</a>  </span> 
+        <span class="fs-7 fw-bold m-3"><a href="/posts/all" class="href">Show All Posts</a></span>
+      </div>
+    </div>
+    {{#each posts}}
+    <div class="card-body">
+      <div class="fw-bold">{{link.name}} </div>
+      <div><a href="{{link.link}}">{{link.link}}</a></div>
+      <div>{{user.first_name}} {{user.last_name}} on {{format_date date_created}}</div> 
+      <div class="fst-italic"><a href="/posts/edit/{{id}}">{{comment}}</a></div>
+    </div>
+    {{/each}}
+  </div>
+</div>
