@@ -23,14 +23,12 @@
         <div class="navbar-brand text-white mb-0 h1">ABC Crypto</div>
       </div>
     </nav>
-      <div class="d-flex flex-row">
+      <div class="container-fluid d-flex flex-row ps-5 pe-5">
         <a class="nav-link" href="/">Home</a><span class="nav-link">|</span> 
-        <a class="nav-link" href="/cards">Cards</a><span class="nav-link">|</span>
 
         <!-- render links based on login status -->
         {{#if logged_in}}
-            {{!-- <a class="nav-link" href="/posts">My Posts</a><span class="nav-link">|</span> --}}
-            <a class="nav-link" href="/posts/all">Posts</a><span class="nav-link">|</span>
+            <a class="nav-link" href="/comments">Profile</a><span class="nav-link">|</span>
         {{/if}} 
         <a class="nav-link" href="/about">About</a><span class="nav-link">|</span>
         {{#if logged_in}}
@@ -43,12 +41,12 @@
 
   <!-- main -->
   <main class="mb-3">
-    <div class="container-fluid p-5">
+    <div class="container-fluid ps-5 pe-5">
       <div class="row">
-
+        <hr>
         <!-- render sublayout -->
         {{{ body }}}
-
+        <p><hr></p>
       </div>
     </div>
   </main>
@@ -58,10 +56,5 @@
     <script src="/js/logout.js"></script>
   {{/if}}
 
-<footer>
-  <div class="container-fluid p-5">
-    <hr>
-  </div>
-</footer>
 </body>
 </html>
