@@ -92,7 +92,7 @@ img {
   height: auto;
 }
 
-.painting {
+/* .painting {
   width: 50%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -103,7 +103,7 @@ img {
   text-align: center;
   padding: 10px 20px;
   font-weight: bold;
-}
+} */
 
 
 .card {
@@ -115,7 +115,7 @@ img {
   color: var(--dark);
 }
 
-.login-card {
+/* .login-card {
   margin: 0 0 20px 0;
   flex: 0 0 50%;
   max-width: 50%;
@@ -126,12 +126,12 @@ img {
   border-width: thick;
   background-color: #577a7c;
   color: var(--light);
-}
+} */
 
-.card header {
+.card-header {
   color: var(--light);
   font-weight: bold;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   margin: 0;
   background-color: var(--tertiary);
   padding: 0.625rem;
@@ -139,8 +139,8 @@ img {
 }
 
 .card-body {
-  font-size: 1.4rem;
-  text-align: center;
+  font-size: 1.2rem;
+  text-align: left;
   font-weight: bold;
 }
 
@@ -161,4 +161,10 @@ img {
   flex-flow: column wrap;
   align-content: flex-start;
   align-items: center;
+}
+
+.a,
+ {
+  color: hsl(0, 0%, 97%);
+  text-decoration: none;
 }

@@ -15,7 +15,7 @@ const loginHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
-    // redirect to dashboard if sign up is successful
+    // redirect to home if sign up is successful
     if (response.ok) {
       document.location.replace('/');
     } else {

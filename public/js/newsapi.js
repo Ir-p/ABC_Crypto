@@ -11,7 +11,7 @@ function getNews() {
       })
 
       .then(function (data) {
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 5; i++) {
           // var newsCard = [];
           // newsCard.title = data.articles[i].title;
           // newsCard.url = data.articles[i].url;
@@ -19,15 +19,14 @@ function getNews() {
           // newsCard.imageSrc = data.articles[i].urlToImage;
 
           $(".newsDisplay").append(
-            '<img class="articleImage" src=' +
-              data.articles[i].urlToImage +
-              "></img>"
+            "<h5>" + data.articles[i].description + "</h5>"
           );
           $(".newsDisplay").append(
-            '<a href="+data.articles[i].url">' + data.articles[i].title + "</a>"
+            '<a href='+data.articles[i].url+' target=_blank><img class="articleImage" src=' +
+              data.articles[i].urlToImage + " width=600px></img></a><p>"
           );
           $(".newsDisplay").append(
-            "<h3>" + data.articles[i].description + "</h3>"
+            '<a href='+data.articles[i].url+'>'+ data.articles[i].title + "</a><p>"
           );
         }
       })
