@@ -5,7 +5,7 @@ async function getPrice() {
   const apiData = await response.json();
   var cryptoData = [];
   var baseUrl = "https://www.coingecko.com/en/coins/";
-  console.log(apiData);
+  // console.log(apiData);
 
   // Loop for top 10 cryptocurrencies
   for (let i=0;i<10;i++) {
@@ -28,7 +28,7 @@ async function getPrice() {
     // Create new row for every new cryptocurrency on Top 10 list
     createRow.innerHTML += `
     <tr>
-      <td><a href=${coinUrl} target=_blank><img src=${imageUrl} width=5%> ${coinName} (${coinSymbol})</a></td>
+      <td><img src=${imageUrl} width=5%>   <a href=${coinUrl} target=_blank>${coinName} (${coinSymbol})</a></td>
       <td align=right><b>$ ${currentPrice.toLocaleString('en-US',{minimumFractionDigits: 2, maximumFractionDigits: 2})}</b></td>
       <td align=right><font color=${priceChangeBGColor}>${priceChange24h.toLocaleString('en-US',{minimumFractionDigits: 3, maximumFractionDigits: 3})} % </td>
       <td><a href=${coinUrl} target=_blank><img class="" alt="bitcoin (BTC) 7d chart" data-src="https://www.coingecko.com/coins/${graphNo}/sparkline" data-srcset="https://www.coingecko.com/coins/${graphNo}/sparkline 1x" src="https://www.coingecko.com/coins/${i}/sparkline" srcset="https://www.coingecko.com/coins/${graphNo}/sparkline 1x"></a></td>

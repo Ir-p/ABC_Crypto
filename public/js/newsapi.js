@@ -11,7 +11,7 @@ function getNews() {
       })
 
       .then(function (data) {
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 10; i++) {
           // var newsCard = [];
           // newsCard.title = data.articles[i].title;
           // newsCard.url = data.articles[i].url;

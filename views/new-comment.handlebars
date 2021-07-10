@@ -1,0 +1,32 @@
+<!-- create-comment -->
+<div class="col">
+  <div class="card m-2">
+    <div class="card-header bg-light">
+      <div class="fs-3 fw-bold">Add a new comment</div>
+    </div>
+    <div class="card-body">
+      <form class="form comment-form">
+        {{!-- <input type="hidden" value="{{user_id}}" name="user_id" class="form-control" id="user_id"> --}}
+        <div class="form-group mb-3">
+          <label for="create-comment-title" class="form-label fw-bold">Select a Link</label>
+          <select class="form-select" id="create-comment-link-id">
+            {{#each links}}
+              <option value="{{id}}">{{name}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-group mb-3">
+          <label for="create-comment-content" class="form-label fw-bold">Comment</label>
+          <textarea class="form-control" id="create-comment-content" rows="5"></textarea>
+        </div>
+        <div class="form-group mb-3">
+          <button class="btn btn-primary" type="submit" id="create-comment-btn">Create</button>
+          <button class="btn btn-primary" type="submit" id="cancel-comment-btn">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/js/new-comment.js"></script>
+<script src="/js/cancel.js"></script>
