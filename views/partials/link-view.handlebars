@@ -1,6 +1,6 @@
 {{#each links as |link|}}
 
-  {{log link}}
+  {{log link.upvote}}
  
   <div class="row mb-4 link">
     <div class="col-md-5">
@@ -9,10 +9,33 @@
         {{{get_emoji}}}
         <a href={{link.link}} target="_blank">{{link.name}}</a>
       </h2>
+      
       <em>
-       {{ link.upvote }}
+        Ratings: {{link.upvote}}
+        {{#if (isEqual link.upvote 0)}}
+        🙁
+        {{else if (isEqual link.upvote 1)}}
+        🙁
+        {{else if (isEqual link.upvote 2)}}
+        🙁
+        {{else if (isEqual link.upvote 3)}}
+        😧
+        {{else if (isEqual link.upvote 4)}}
+        😧
+        {{else if (isEqual link.upvote 5)}}
+        😐
+        {{else if (isEqual link.upvote 6)}}
+        🙂
+        {{else if (isEqual link.upvote 7)}}
+        🙂
+        {{else}}
+        😄     
+        {{/if}}
       </em>
-
+  <div>
+  <button id="button" class="inc">👍</button>
+  <button id="button" class="dec">👎</button>
+  </div>
     </div>
     <div class="col-md-7">
       <p>
