@@ -1,7 +1,7 @@
 {{#each links as |link|}}
 
   {{log link}}
-  <hr />
+ 
   <div class="row mb-4 link">
     <div class="col-md-5">
       <h2>
@@ -9,18 +9,9 @@
         {{{get_emoji}}}
         <a href={{link.link}} target="_blank">{{link.name}}</a>
       </h2>
-      <div>
-        <div>
-
-          {{#switch link.upvote }}
-            {{#case "5"}} B {{/case}}
-            {{#case "9"}} A {{/case}}
-            {{#case "6"}} C {{/case}}
-            {{#case "0"}} D {{/case}}
-          {{/switch}}
-
-        </div>
-      </div>
+      <em>
+       {{ link.upvote }}
+      </em>
 
     </div>
     <div class="col-md-7">

@@ -10,12 +10,6 @@ router.get("/", withAuth, async (req, res) => {
         { model: Comment, attributes: ['comment']
       }
     ]
-    //   include: [
-    //     { model: User, attributes: ['first_name', 'last_name'] },
-    //     { model: Comment, attributes: ['comment'],
-    //     include: [{ model: User, attributes: ['first_name', 'last_name']}] 
-    //   }
-    // ]
     });
     // Serialize data so the template can read it
     const links = linkData.map((link) => link.get({ plain: true }));
