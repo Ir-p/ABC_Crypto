@@ -40,4 +40,21 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+router.post("/vote", withAuth, async (req, res) => {
+  const body = req.body;
+  
+  try {
+
+    const link = await (await Link.findByPk(parseInt(req.body.link_id)))
+    console.log("link:", link)
+    link.upvote = parseInt(req.body.upvote);
+    await link.save({fields: ["upvote"]})
+
+    res.redirect('/cards/5');
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
