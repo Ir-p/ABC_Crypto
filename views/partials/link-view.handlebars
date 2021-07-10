@@ -1,7 +1,7 @@
 {{#each links as |link|}}
 
-  {{log link.upvote}}
- 
+  {{!-- {{log link.upvote}}
+  --}}
   <div class="row mb-4 link">
     <div class="col-md-5">
       <h2>
@@ -13,7 +13,7 @@
       <em>
         Ratings: {{link.upvote}}
         {{#if (isEqual link.upvote 0)}}
-        🙁
+        
         {{else if (isEqual link.upvote 1)}}
         🙁
         {{else if (isEqual link.upvote 2)}}
@@ -32,10 +32,6 @@
         😄     
         {{/if}}
       </em>
-  <div>
-  <button id="button" class="inc" style="border:none">👍</button>
-  <button id="button" class="dec" style="border:none">👎</button>
-  </div>
     </div>
     <div class="col-md-7">
       <p>

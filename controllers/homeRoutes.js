@@ -54,7 +54,6 @@ router.get("/", async (req, res) => {
 router.get("/cards/:id", withAuth, async (req, res) => {
   try {
     const card = cards[req.params.id - 1];
-    // console.log(card);
 
     if (!card) {
       res.status(404).json({ message: "No card found with this id!" });
@@ -105,7 +104,7 @@ router.get("/cards/:id", withAuth, async (req, res) => {
           ],
         });
         const links = linkData.map((link) => link.get({ plain: true }));
-        console.log('links:', links);
+        
         // Pass serialized data and session flag into template
         res.render("link", {
           layout: "homepage",
