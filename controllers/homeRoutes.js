@@ -104,7 +104,13 @@ router.get("/cards/:id", withAuth, async (req, res) => {
             },
           ],
         });
-        const links = linkData.map((link) => link.get({ plain: true }));
+        const links = linkData.map((link) => {
+        link =  link.get({ plain: true });
+        link.upvote_input_value = link.upvote + 1;
+        link.downvote_input_value = link.upvote - 1;
+        return link;
+        }); 
+        
         // console.log('links:', links);
         // Pass serialized data and session flag into template
         res.render("link", {
@@ -112,7 +118,7 @@ router.get("/cards/:id", withAuth, async (req, res) => {
           links,
           logged_in: req.session.logged_in,
           user_name: req.session.user_name,
-          user_id: req.session.user_id
+          user_id: req.session.user_id, 
         }); 
       } catch (err) {
         res.status(500).json(err);
