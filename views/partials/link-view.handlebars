@@ -1,7 +1,7 @@
 {{#each links as |link|}}
 
-  {{log link}}
-  <hr />
+  {{!-- {{log link.upvote}}
+  --}}
   <div class="row mb-4 link">
     <div class="col-md-5">
       <h2>
@@ -9,19 +9,29 @@
         {{{get_emoji}}}
         <a href={{link.link}} target="_blank">{{link.name}}</a>
       </h2>
-      <div>
-        <div>
-
-          {{#switch link.upvote }}
-            {{#case "5"}} B {{/case}}
-            {{#case "9"}} A {{/case}}
-            {{#case "6"}} C {{/case}}
-            {{#case "0"}} D {{/case}}
-          {{/switch}}
-
-        </div>
-      </div>
-
+      
+      <em>
+        Ratings: {{link.upvote}}
+        {{#if (isEqual link.upvote 0)}}
+        
+        {{else if (isEqual link.upvote 1)}}
+        🙁
+        {{else if (isEqual link.upvote 2)}}
+        🙁
+        {{else if (isEqual link.upvote 3)}}
+        😧
+        {{else if (isEqual link.upvote 4)}}
+        😧
+        {{else if (isEqual link.upvote 5)}}
+        😐
+        {{else if (isEqual link.upvote 6)}}
+        🙂
+        {{else if (isEqual link.upvote 7)}}
+        🙂
+        {{else}}
+        😄     
+        {{/if}}
+      </em>
     </div>
     <div class="col-md-7">
       <p>

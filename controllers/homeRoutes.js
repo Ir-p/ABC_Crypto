@@ -105,7 +105,7 @@ router.get("/cards/:id", withAuth, async (req, res) => {
           ],
         });
         const links = linkData.map((link) => link.get({ plain: true }));
-        console.log('links:', links);
+        // console.log('links:', links);
         // Pass serialized data and session flag into template
         res.render("link", {
           layout: "homepage",
