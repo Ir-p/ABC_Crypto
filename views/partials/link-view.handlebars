@@ -1,23 +1,62 @@
-{{#each links as |link| }}
-{{log link}}
-<hr/>
-<div class="row mb-4 link">
+{{#each links as |link|}}
+
+  {{! <form class="row mb-4 link" action="/api/links/vote" method="POST"> }}
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
       {{{get_emoji}}}
       <a href={{link.link}} target="_blank">{{link.name}}</a>
     </h2>
-    
+
+    <em>
+      Ratings:
+      {{link.upvote}}
+      {{#if (isEqual link.upvote 0)}}{{else if (isEqual link.upvote 1)}}
+        🙁
+      {{else if (isEqual link.upvote 2)}}
+        🙁
+      {{else if (isEqual link.upvote 3)}}
+        😧
+      {{else if (isEqual link.upvote 4)}}
+        😧
+      {{else if (isEqual link.upvote 5)}}
+        😐
+      {{else if (isEqual link.upvote 6)}}
+        🙂
+      {{else if (isEqual link.upvote 7)}}
+        🙂
+      {{else}}
+        😄
+      {{/if}}
+    </em>
+    <form class="row mb-4 link" style="display: inline; margin: 1em;" action="/api/links/vote" method="POST">
+      <input type="hidden" name="upvote" value="{{this.upvote_input_value}}" />
+      <input type="hidden" class="id" name="link_id" value="{{link.id}}"/>
+      <button type="submit" id="inc" style="width: 3em; background-color: grey" class="btn btn-primary submit">👍</button>
+    </form>
+      <form class="row mb-4 link" style="display:inline; margin: 1em;" action="/api/links/vote" method="POST">
+      <input type="hidden" name="upvote" value="{{this.downvote_input_value}}" />
+      <input type="hidden" class="id" name="link_id" value="{{link.id}}"/>
+      <button type="submit" id="dec" style="width: 3em; background-color: grey" class="btn btn-primary submit">👎</button>
+    </form>
   </div>
   <div class="col-md-7">
     <p>
       {{link.text}}
     </p>
-    <p>User:
-      {{link.user.username}}
-    </p>
+    {{#each link.comments as |comment|}}
+      <em>
+        {{comment.comment}}
+      </em>
+      <p>
+        {{comment.user.first_name}}
+        {{comment.user.last_name}}
+        on
+        {{format_date comment.date_created}}
+      </p>
+      <hr />
+    {{/each}}
   </div>
-</div>
-<hr/>
+  {{! </form> }}
+  <hr />
 {{/each}}

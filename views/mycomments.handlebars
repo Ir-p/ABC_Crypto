@@ -1,0 +1,24 @@
+<!-- render comments -->
+<div class="col">
+  <div class="card">
+    <div class="card-header">
+      <div class="fs-3 fw-bold">Hello {{username}} {{user.last_name}}</div>
+      <div class="fst-italic">Below is a list of your comments. Please click on a comment to edit.</div>
+      <div>
+        <span class="fs-7 fw-bold"><a href="/comments/new" class="href">Add New Comment</a>  </span> 
+      </div>
+    </div>
+    {{#each links as |link|}}
+      <div class="card-body">
+        <div class="fw-bold">
+          <a href={{link.link}} target="_blank">{{link.name}}</a> 
+        </div>
+        {{#each link.comments as |comment|}}
+          {{log comment}}
+          {{format_date date_created}}: <div class="fst-italic"><a href="/comments/edit/{{comment.id}}">{{comment.comment}}</a></div>
+        {{/each}}
+      </div>
+      <hr />
+    {{/each}}   
+  </div>
+</div>

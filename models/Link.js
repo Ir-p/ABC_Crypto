@@ -31,7 +31,7 @@ Link.init(
       allowNull: false
     },
     upvote: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: 0
     },

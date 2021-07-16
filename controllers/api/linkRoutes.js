@@ -10,12 +10,6 @@ router.get("/", withAuth, async (req, res) => {
         { model: Comment, attributes: ['comment']
       }
     ]
-    //   include: [
-    //     { model: User, attributes: ['first_name', 'last_name'] },
-    //     { model: Comment, attributes: ['comment'],
-    //     include: [{ model: User, attributes: ['first_name', 'last_name']}] 
-    //   }
-    // ]
     });
     // Serialize data so the template can read it
     const links = linkData.map((link) => link.get({ plain: true }));
@@ -33,13 +27,30 @@ router.get("/", withAuth, async (req, res) => {
 
 router.post("/", withAuth, async (req, res) => {
   const body = req.body;
-  // console.log("body:", body);
+ 
   try {
     await Link.create({
       ...body,
       user_id: req.session.user_id,
     });
     res.redirect('/');
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json(err);
+  }
+});
+
+router.post("/vote", withAuth, async (req, res) => {
+  const body = req.body;
+  
+  try {
+
+    const link = await (await Link.findByPk(parseInt(req.body.link_id)))
+    console.log("link:", link)
+    link.upvote = parseInt(req.body.upvote);
+    await link.save({fields: ["upvote"]})
+
+    res.redirect('/cards/5');
   } catch (err) {
     console.log(err.message);
     res.status(500).json(err);

@@ -1,8 +1,8 @@
 // cancel button handler
-const cancelPostHandler = async (event) => {
+const cancelCommentHandler = async (event) => {
   event.preventDefault();
 
-  document.location.replace('/posts');
+  document.location.replace('/comments');
 };
 
-document.querySelector('#cancel-post-btn').addEventListener('click', cancelPostHandler);
+document.querySelector('#cancel-comment-btn').addEventListener('click', cancelCommentHandler);

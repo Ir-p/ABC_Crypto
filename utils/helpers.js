@@ -15,4 +15,8 @@ module.exports = {
       return `<span for="img" aria-label="gear">⚙️</span>`;
     }
   },
-};
+  
+  isEqual: (value1, value2, options) => {
+    return value1 === value2;
+  }
+}

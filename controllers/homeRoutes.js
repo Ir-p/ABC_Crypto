@@ -14,7 +14,7 @@ const cards = [
   {
     id: 2,
     name: "Social Media",
-    content: "Link to some API",
+    content: "Crytocurrency news on social media.",
   },
   {
     id: 3,
@@ -50,21 +50,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get all cards
-router.get("/cards", async (req, res) => {
-  // console.log(req.session);
-  try {
-    res.render("cards", {
-      layout: "homepage",
-      cards,
-      user_name: req.session.user_name,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // GET single card
 router.get("/cards/:id", withAuth, async (req, res) => {
   try {
@@ -74,6 +59,13 @@ router.get("/cards/:id", withAuth, async (req, res) => {
     if (!card) {
       res.status(404).json({ message: "No card found with this id!" });
       return;
+    }
+    else if (req.params.id == 1) {
+      res.render('info', {
+        layout: 'homepage',
+        logged_in: req.session.logged_in,
+        user_name: req.session.user_name,
+      });
     }
     else if (req.params.id == 2) {
       res.render('news', {
@@ -102,19 +94,31 @@ router.get("/cards/:id", withAuth, async (req, res) => {
           include: [
             {
               model: Comment,
-              attributes: ["comment"]
+              attributes: ["comment", "date_created"],
+              include: [
+                {
+                  model: User,
+                  attributes: ["first_name", "last_name"]
+                }
+              ]
             },
           ],
         });
-        const links = linkData.map((link) => link.get({ plain: true }));
-       
+        const links = linkData.map((link) => {
+        link =  link.get({ plain: true });
+        link.upvote_input_value = link.upvote + 1;
+        link.downvote_input_value = link.upvote - 1;
+        return link;
+        }); 
+        
+        // console.log('links:', links);
         // Pass serialized data and session flag into template
         res.render("link", {
           layout: "homepage",
           links,
           logged_in: req.session.logged_in,
           user_name: req.session.user_name,
-          user_id: req.session.user_id
+          user_id: req.session.user_id, 
         }); 
       } catch (err) {
         res.status(500).json(err);
